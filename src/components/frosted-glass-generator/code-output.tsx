@@ -19,7 +19,7 @@ function CodeSection({
 }: {
   title: string;
   code: string;
-  language: "xml" | "css" | "html";
+  language: "postcss" | "css" | "html" | "xml";
   headerContent?: React.ReactNode;
 }) {
   const [copied, setCopied] = useState(false);
@@ -39,20 +39,15 @@ function CodeSection({
           </span>
           {headerContent}
         </div>
-        <Button
-          variant="ghost"
-          size="sm"
-          onClick={handleCopy}
-          className="h-6 gap-1 px-2 text-xs"
-        >
+        <Button variant="ghost" size="sm" onClick={handleCopy}>
           {copied ? (
             <>
-              <Check className="h-3 w-3" />
+              <Check className="size-3" />
               Copied
             </>
           ) : (
             <>
-              <Copy className="h-3 w-3" />
+              <Copy className="size-3" />
               Copy
             </>
           )}
@@ -81,26 +76,20 @@ export function CodeOutput({
 
   const formatToggle = (
     <div className="flex gap-1">
-      <button
+      <Button
+        variant={outputFormat === "css" ? "default" : "secondary"}
+        size="xs"
         onClick={() => onFormatChange("css")}
-        className={`rounded-md px-2 py-0.5 text-xs font-medium transition-colors ${
-          outputFormat === "css"
-            ? "bg-primary text-primary-foreground"
-            : "bg-muted text-muted-foreground hover:bg-muted/80"
-        }`}
       >
         Pure CSS
-      </button>
-      <button
+      </Button>
+      <Button
+        variant={outputFormat === "tailwind" ? "default" : "secondary"}
+        size="xs"
         onClick={() => onFormatChange("tailwind")}
-        className={`rounded-md px-2 py-0.5 text-xs font-medium transition-colors ${
-          outputFormat === "tailwind"
-            ? "bg-primary text-primary-foreground"
-            : "bg-muted text-muted-foreground hover:bg-muted/80"
-        }`}
       >
         Tailwind
-      </button>
+      </Button>
     </div>
   );
 
@@ -109,26 +98,20 @@ export function CodeOutput({
       <div className="flex shrink-0 flex-wrap items-center justify-between gap-2 border-b px-4 py-2">
         <h2 className="text-sm font-semibold">Generated Code</h2>
         <div className="flex gap-1">
-          <button
+          <Button
+            variant={useBase64 ? "default" : "secondary"}
+            size="xs"
             onClick={() => setUseBase64(true)}
-            className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-              useBase64
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
           >
             Base64
-          </button>
-          <button
+          </Button>
+          <Button
+            variant={!useBase64 ? "default" : "secondary"}
+            size="xs"
             onClick={() => setUseBase64(false)}
-            className={`rounded-md px-2 py-1 text-xs font-medium transition-colors ${
-              !useBase64
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground hover:bg-muted/80"
-            }`}
           >
             File
-          </button>
+          </Button>
         </div>
       </div>
 
@@ -136,7 +119,12 @@ export function CodeOutput({
         {!useBase64 && (
           <CodeSection title="SVG" code={generatedCode.svg} language="xml" />
         )}
-        <CodeSection title="CSS" code={generatedCode.css} language="css" headerContent={formatToggle} />
+        <CodeSection
+          title="CSS"
+          code={generatedCode.css}
+          language={outputFormat === "css" ? "css" : "postcss"}
+          headerContent={formatToggle}
+        />
         <CodeSection title="HTML" code={generatedCode.html} language="html" />
       </div>
     </div>

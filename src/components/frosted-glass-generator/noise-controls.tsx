@@ -59,26 +59,20 @@ export function NoiseControls({ noise, onChange }: NoiseControlsProps) {
         <div className="space-y-2">
           <Label className="text-xs text-muted-foreground">Type</Label>
           <div className="flex gap-2">
-            <button
+            <Button
+              variant={noise.type === "fractalNoise" ? "default" : "secondary"}
+              size="xs"
               onClick={() => onChange({ type: "fractalNoise" })}
-              className={`rounded-md px-3 py-1.5 text-xs transition-colors ${
-                noise.type === "fractalNoise"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
             >
               Fractal Noise
-            </button>
-            <button
+            </Button>
+            <Button
+              variant={noise.type === "turbulence" ? "default" : "secondary"}
+              size="xs"
               onClick={() => onChange({ type: "turbulence" })}
-              className={`rounded-md px-3 py-1.5 text-xs transition-colors ${
-                noise.type === "turbulence"
-                  ? "bg-primary text-primary-foreground"
-                  : "bg-muted text-muted-foreground hover:bg-muted/80"
-              }`}
             >
               Turbulence
-            </button>
+            </Button>
           </div>
         </div>
       </div>

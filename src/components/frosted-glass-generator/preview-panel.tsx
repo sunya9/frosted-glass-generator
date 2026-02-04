@@ -11,6 +11,7 @@ import {
   PREVIEW_GRADIENTS,
   PREVIEW_SOLIDS,
 } from "@/lib/frosted-glass";
+import { Button } from "@/components/ui/button";
 
 interface PreviewPanelProps {
   config: FrostedGlassConfig;
@@ -82,11 +83,11 @@ export function PreviewPanel({
     const noiseSvgUrl = `url("${svgToBase64(generateNoiseSvgMinified(noise))}")`;
 
     return {
-      background: `${noiseSvgUrl}, ${bgColor}`,
+      backgroundImage: noiseSvgUrl,
+      backgroundColor: bgColor,
       backgroundSize: "cover",
-      backgroundBlendMode: "soft-light",
+      backgroundBlendMode: "soft-light" as const,
       backdropFilter: `blur(${blur.amount}px)`,
-      WebkitBackdropFilter: `blur(${blur.amount}px)`,
       border: `${border.width}px solid ${borderColor}`,
       borderRadius: `${border.radius}px`,
       boxShadow: shadow.enabled
@@ -129,10 +130,11 @@ export function PreviewPanel({
       <div className="shrink-0 border-t bg-background/80 p-3">
         <div className="flex flex-wrap justify-center gap-2">
           {allBackgrounds.map((bg) => (
-            <button
+            <Button
               key={`${bg.type}-${bg.index}`}
+              variant="ghost"
               onClick={() => handleSelect(bg)}
-              className={`h-10 w-14 rounded-md transition-all ${
+              className={`h-10 w-14 p-0 transition-all ${
                 isSelected(bg)
                   ? "ring-2 ring-primary ring-offset-2"
                   : "opacity-70 hover:opacity-100"

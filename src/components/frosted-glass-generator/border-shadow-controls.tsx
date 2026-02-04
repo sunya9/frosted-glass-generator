@@ -1,6 +1,7 @@
 import type { BorderConfig, ShadowConfig } from "@/lib/frosted-glass";
 import { BORDER_LIMITS, SHADOW_LIMITS } from "@/lib/frosted-glass";
 import { Label } from "@/components/ui/label";
+import { Switch } from "@/components/ui/switch";
 import { SliderControl } from "./slider-control";
 import { ColorInput } from "./color-input";
 
@@ -62,17 +63,14 @@ export function BorderShadowControls({
 
       <div className="space-y-4">
         <div className="flex items-center justify-between">
-          <Label className="text-sm font-medium">Shadow</Label>
-          <button
-            onClick={() => onShadowChange({ enabled: !shadow.enabled })}
-            className={`rounded-md px-3 py-1 text-xs transition-colors ${
-              shadow.enabled
-                ? "bg-primary text-primary-foreground"
-                : "bg-muted text-muted-foreground"
-            }`}
-          >
-            {shadow.enabled ? "ON" : "OFF"}
-          </button>
+          <Label htmlFor="shadow-toggle" className="text-sm font-medium">
+            Shadow
+          </Label>
+          <Switch
+            id="shadow-toggle"
+            checked={shadow.enabled}
+            onCheckedChange={(checked) => onShadowChange({ enabled: checked })}
+          />
         </div>
 
         {shadow.enabled && (
