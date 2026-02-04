@@ -12,7 +12,10 @@ export interface GeneratedCode {
   html: string;
 }
 
-export function generateCss(config: FrostedGlassConfig, useBase64: boolean = true): GeneratedCode {
+export function generateCss(
+  config: FrostedGlassConfig,
+  useBase64: boolean = true,
+): GeneratedCode {
   const { noise, background, blur, border, shadow } = config;
 
   const bgColor = hexToRgba(background.color, background.opacity);
@@ -28,14 +31,14 @@ export function generateCss(config: FrostedGlassConfig, useBase64: boolean = tru
 
   const svg = generateNoiseSvg(noise);
 
-  const cssComment = useBase64 ? "" : "/* Save the SVG as \"noise.svg\" */\n";
+  const cssComment = useBase64 ? "" : '/* Save the SVG as "noise.svg" */\n';
 
   const css = `${cssComment}.frosted-glass {
-  background: url(${noiseUrl}), ${bgColor};
+  background-image: url(${noiseUrl});
+  background-color: ${bgColor};
   background-size: cover;
   background-blend-mode: soft-light;
   backdrop-filter: blur(${blur.amount}px);
-  -webkit-backdrop-filter: blur(${blur.amount}px);
   border: ${border.width}px solid ${borderColor};
   border-radius: ${border.radius}px;${shadowValue ? `\n  ${shadowValue}` : ""}
 }`;
