@@ -1,3 +1,9 @@
-# React + TypeScript + Vite + shadcn/ui
+# Frosted Glass Generator
 
-This is a template for a new Vite project with React, TypeScript, and shadcn/ui.
+A tool for generating CSS glassmorphism effects using SVG feTurbulence noise.
+
+https://sunya9.github.io/frosted-glass-generator/
+
+## Contributing
+
+Contributions are welcome! Feel free to open issues or submit pull requests.
