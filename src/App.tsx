@@ -1,9 +1,7 @@
+import { FrostedGlassGenerator } from "@/components/frosted-glass-generator";
+
 export function App() {
-  return (
-    <div className="flex items-center justify-center min-h-screen">
-      <div className="font-medium">Hello World</div>
-    </div>
-  )
+  return <FrostedGlassGenerator />;
 }
 
-export default App
+export default App;
