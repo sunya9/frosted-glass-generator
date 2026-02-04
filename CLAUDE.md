@@ -47,6 +47,7 @@ This is a Frosted Glass CSS Generator - a tool that generates CSS code for glass
 ## react-resizable-panels v4 API
 
 The library API changed significantly in v4:
+
 - Import: `Group`, `Panel`, `Separator` (not `PanelGroup`, `PanelResizeHandle`)
 - Use `orientation` instead of `direction`
 - Use `minSize="200px"` (string with CSS units) instead of percentage-only
