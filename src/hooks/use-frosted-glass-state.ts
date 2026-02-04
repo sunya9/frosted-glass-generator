@@ -19,69 +19,48 @@ export function useFrostedGlassState() {
     useState<PreviewBackground>("image");
   const [previewIndex, setPreviewIndex] = useState(0);
 
-  const updateNoise = useCallback(
-    (updates: Partial<NoiseConfig>) => {
-      setConfig((prev) => ({
-        ...prev,
-        noise: { ...prev.noise, ...updates },
-      }));
-    },
-    [],
-  );
+  const updateNoise = useCallback((updates: Partial<NoiseConfig>) => {
+    setConfig((prev) => ({
+      ...prev,
+      noise: { ...prev.noise, ...updates },
+    }));
+  }, []);
 
-  const updateBackground = useCallback(
-    (updates: Partial<BackgroundConfig>) => {
-      setConfig((prev) => ({
-        ...prev,
-        background: { ...prev.background, ...updates },
-      }));
-    },
-    [],
-  );
+  const updateBackground = useCallback((updates: Partial<BackgroundConfig>) => {
+    setConfig((prev) => ({
+      ...prev,
+      background: { ...prev.background, ...updates },
+    }));
+  }, []);
 
-  const updateBlur = useCallback(
-    (updates: Partial<BlurConfig>) => {
-      setConfig((prev) => ({
-        ...prev,
-        blur: { ...prev.blur, ...updates },
-      }));
-    },
-    [],
-  );
+  const updateBlur = useCallback((updates: Partial<BlurConfig>) => {
+    setConfig((prev) => ({
+      ...prev,
+      blur: { ...prev.blur, ...updates },
+    }));
+  }, []);
 
-  const updateBorder = useCallback(
-    (updates: Partial<BorderConfig>) => {
-      setConfig((prev) => ({
-        ...prev,
-        border: { ...prev.border, ...updates },
-      }));
-    },
-    [],
-  );
+  const updateBorder = useCallback((updates: Partial<BorderConfig>) => {
+    setConfig((prev) => ({
+      ...prev,
+      border: { ...prev.border, ...updates },
+    }));
+  }, []);
 
-  const updateShadow = useCallback(
-    (updates: Partial<ShadowConfig>) => {
-      setConfig((prev) => ({
-        ...prev,
-        shadow: { ...prev.shadow, ...updates },
-      }));
-    },
-    [],
-  );
+  const updateShadow = useCallback((updates: Partial<ShadowConfig>) => {
+    setConfig((prev) => ({
+      ...prev,
+      shadow: { ...prev.shadow, ...updates },
+    }));
+  }, []);
 
-  const setOutputFormat = useCallback(
-    (format: OutputFormat) => {
-      setConfig((prev) => ({ ...prev, outputFormat: format }));
-    },
-    [],
-  );
+  const setOutputFormat = useCallback((format: OutputFormat) => {
+    setConfig((prev) => ({ ...prev, outputFormat: format }));
+  }, []);
 
-  const setSvgMethod = useCallback(
-    (method: SvgMethod) => {
-      setConfig((prev) => ({ ...prev, svgMethod: method }));
-    },
-    [],
-  );
+  const setSvgMethod = useCallback((method: SvgMethod) => {
+    setConfig((prev) => ({ ...prev, svgMethod: method }));
+  }, []);
 
   const applyPreset = useCallback((presetName: string) => {
     const preset = PRESETS.find((p) => p.name === presetName);

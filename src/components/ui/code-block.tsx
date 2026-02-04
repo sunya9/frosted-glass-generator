@@ -6,7 +6,7 @@ import {
   type Highlighter,
 } from "shiki/bundle/web";
 
-const langs: BundledLanguage[] = ["css", "html", "xml"] as const;
+const langs: BundledLanguage[] = ["postcss", "css", "html", "xml"] as const;
 
 const theme: BundledTheme = "one-light";
 
