@@ -8,6 +8,7 @@ import {
 import { ControlPanel } from "./control-panel";
 import { PreviewPanel } from "./preview-panel";
 import { CodeOutput } from "./code-output";
+import { AboutDialog } from "@/components/about-dialog";
 
 const LAYOUT_STORAGE_KEY = "frosted-glass-layout";
 
@@ -45,9 +46,10 @@ export function FrostedGlassGenerator() {
 
   return (
     <div className="flex h-screen flex-col overflow-hidden">
-      <header className="shrink-0 border-b bg-background/95 backdrop-blur supports-[backdrop-filter]:bg-background/60">
-        <div className="flex h-12 items-center px-6">
+      <header className="shrink-0 border-b bg-background/95 backdrop-blur supports-backdrop-filter:bg-background/60">
+        <div className="flex h-12 items-center justify-between px-6">
           <h1 className="text-lg font-bold">Frosted Glass Generator</h1>
+          <AboutDialog />
         </div>
       </header>
 
