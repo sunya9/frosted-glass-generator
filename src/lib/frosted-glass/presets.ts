@@ -49,7 +49,7 @@ export const PRESETS: Preset[] = [
       },
       background: {
         color: "#ffffff",
-        opacity: 0.4,
+        opacity: 0.1,
       },
       blur: {
         amount: 20,
@@ -180,4 +180,71 @@ export const PRESETS: Preset[] = [
 
 export function getPresetByName(name: string): Preset | undefined {
   return PRESETS.find((preset) => preset.name === name);
+}
+
+/**
+ * Find the preset that matches the current config (excluding outputFormat and svgMethod)
+ */
+export function findMatchingPreset(
+  config: Omit<Preset["config"], never>,
+): PresetName | null {
+  for (const preset of PRESETS) {
+    if (isConfigMatchingPreset(config, preset.config)) {
+      return preset.name;
+    }
+  }
+  return null;
+}
+
+function isConfigMatchingPreset(
+  config: Omit<Preset["config"], never>,
+  presetConfig: Preset["config"],
+): boolean {
+  // Compare noise (seed is excluded as it's expected to vary)
+  if (
+    config.noise.baseFrequency !== presetConfig.noise.baseFrequency ||
+    config.noise.numOctaves !== presetConfig.noise.numOctaves ||
+    config.noise.type !== presetConfig.noise.type ||
+    config.noise.opacity !== presetConfig.noise.opacity
+  ) {
+    return false;
+  }
+
+  // Compare background
+  if (
+    config.background.color !== presetConfig.background.color ||
+    config.background.opacity !== presetConfig.background.opacity
+  ) {
+    return false;
+  }
+
+  // Compare blur
+  if (config.blur.amount !== presetConfig.blur.amount) {
+    return false;
+  }
+
+  // Compare border
+  if (
+    config.border.width !== presetConfig.border.width ||
+    config.border.color !== presetConfig.border.color ||
+    config.border.opacity !== presetConfig.border.opacity ||
+    config.border.radius !== presetConfig.border.radius
+  ) {
+    return false;
+  }
+
+  // Compare shadow
+  if (
+    config.shadow.enabled !== presetConfig.shadow.enabled ||
+    config.shadow.x !== presetConfig.shadow.x ||
+    config.shadow.y !== presetConfig.shadow.y ||
+    config.shadow.blur !== presetConfig.shadow.blur ||
+    config.shadow.spread !== presetConfig.shadow.spread ||
+    config.shadow.color !== presetConfig.shadow.color ||
+    config.shadow.opacity !== presetConfig.shadow.opacity
+  ) {
+    return false;
+  }
+
+  return true;
 }

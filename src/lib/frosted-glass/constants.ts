@@ -1,34 +1,35 @@
 import type { FrostedGlassConfig } from "./types";
 
+// Default config matches "heavy-frost" preset
 export const DEFAULT_CONFIG: FrostedGlassConfig = {
   noise: {
-    baseFrequency: 0.65,
-    numOctaves: 3,
-    seed: 0,
+    baseFrequency: 0.8,
+    numOctaves: 4,
+    seed: 42,
     type: "fractalNoise",
-    opacity: 0.15,
+    opacity: 0.5,
   },
   background: {
     color: "#ffffff",
-    opacity: 0.25,
+    opacity: 0.1,
   },
   blur: {
-    amount: 12,
+    amount: 20,
   },
   border: {
     width: 1,
     color: "#ffffff",
-    opacity: 0.2,
-    radius: 16,
+    opacity: 0.25,
+    radius: 20,
   },
   shadow: {
     enabled: true,
     x: 0,
-    y: 4,
-    blur: 30,
+    y: 8,
+    blur: 40,
     spread: 0,
     color: "#000000",
-    opacity: 0.1,
+    opacity: 0.15,
   },
   outputFormat: "css",
   svgMethod: "inline",
