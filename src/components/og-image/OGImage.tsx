@@ -1,7 +1,15 @@
 /**
  * OG Image component for social sharing preview.
  * Render this at 1200x630 and capture with Playwright.
+ *
+ * Panel dimensions based on golden ratio (φ = 1.618):
+ * - Width: 1200 / φ ≈ 742
+ * - Height: 742 / φ ≈ 459
  */
+const PHI = 1.618;
+const PANEL_WIDTH = Math.round(1200 / PHI); // 742
+const PANEL_HEIGHT = Math.round(PANEL_WIDTH / PHI); // 459
+
 export function OGImage() {
   return (
     <div
@@ -10,7 +18,6 @@ export function OGImage() {
         height: 630,
         background: "linear-gradient(135deg, #4facfe 0%, #00f2fe 100%)",
         display: "flex",
-        flexDirection: "column",
         alignItems: "center",
         justifyContent: "center",
         fontFamily:
@@ -22,8 +29,8 @@ export function OGImage() {
       {/* Frosted Glass Panel */}
       <div
         style={{
-          width: 800,
-          height: 320,
+          width: PANEL_WIDTH,
+          height: PANEL_HEIGHT,
           borderRadius: 24,
           background: "rgba(255, 255, 255, 0.25)",
           backdropFilter: "blur(20px)",
@@ -96,20 +103,6 @@ export function OGImage() {
           Generator
         </h2>
       </div>
-
-      {/* Tagline */}
-      <p
-        style={{
-          fontSize: 32,
-          fontWeight: 500,
-          color: "white",
-          textShadow: "0 2px 8px rgba(0, 0, 0, 0.15)",
-          marginTop: 40,
-          letterSpacing: "0.02em",
-        }}
-      >
-        CSS Glassmorphism Made Easy
-      </p>
     </div>
   );
 }
