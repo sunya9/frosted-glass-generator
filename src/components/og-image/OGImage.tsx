@@ -26,17 +26,30 @@ export function OGImage() {
         overflow: "hidden",
       }}
     >
+      {/* Grid overlay */}
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          backgroundImage: `
+            linear-gradient(rgba(255, 255, 255, 0.3) 1px, transparent 1px),
+            linear-gradient(90deg, rgba(255, 255, 255, 0.3) 1px, transparent 1px)
+          `,
+          backgroundSize: "40px 40px",
+          backgroundPosition: "center center",
+        }}
+      />
+
       {/* Frosted Glass Panel */}
       <div
         style={{
           width: PANEL_WIDTH,
           height: PANEL_HEIGHT,
           borderRadius: 24,
-          background: "rgba(255, 255, 255, 0.25)",
-          backdropFilter: "blur(20px)",
-          WebkitBackdropFilter: "blur(20px)",
-          border: "1px solid rgba(255, 255, 255, 0.4)",
-          boxShadow: "0 25px 50px -12px rgba(0, 0, 0, 0.25)",
+          background: "rgba(0, 0, 0, 0.03)",
+          backdropFilter: "blur(5px)",
+          border: "1px solid rgba(255, 255, 255, 0.2)",
+          boxShadow: "0 5px 40px 0 rgba(0, 0, 0, 0.15)",
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
@@ -62,18 +75,19 @@ export function OGImage() {
             <filter id="ogNoise">
               <feTurbulence
                 type="fractalNoise"
-                baseFrequency="0.65"
+                baseFrequency="0.7"
                 numOctaves="3"
                 seed="42"
                 stitchTiles="stitch"
               />
-              <feColorMatrix
-                type="matrix"
-                values="0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0 0.5  0 0 0 0.7 0"
-              />
             </filter>
           </defs>
-          <rect width="100%" height="100%" filter="url(#ogNoise)" />
+          <rect
+            width="100%"
+            height="100%"
+            filter="url(#ogNoise)"
+            opacity="0.4"
+          />
         </svg>
 
         {/* Title */}
