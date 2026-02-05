@@ -22,7 +22,7 @@ async function generateImages() {
   // Generate OG image (1200x630)
   console.log("Generating OG image...");
   await page.setViewportSize({ width: 1200, height: 630 });
-  await page.goto(`${DEV_SERVER_URL}/og-preview`);
+  await page.goto(`${DEV_SERVER_URL}/og-preview.html`);
   await page.waitForLoadState("networkidle");
   await page.screenshot({
     path: "public/og-image.png",
