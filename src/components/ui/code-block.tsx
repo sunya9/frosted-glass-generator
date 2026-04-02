@@ -1,24 +1,10 @@
 import { use, Suspense } from "react";
-import {
-  createHighlighter,
-  type BundledLanguage,
-  type BundledTheme,
-  type Highlighter,
-} from "shiki/bundle/web";
-
-const langs: BundledLanguage[] = ["postcss", "css", "html", "xml"] as const;
-
-const theme: BundledTheme = "one-light";
+import { highlighterPromise, theme, type Lang } from "@/lib/shiki";
 
 interface CodeBlockProps {
   code: string;
-  lang: BundledLanguage;
+  lang: Lang;
 }
-
-const highlighterPromise: Promise<Highlighter> = createHighlighter({
-  themes: [theme],
-  langs,
-});
 
 function CodeBlockInner({ code, lang }: CodeBlockProps) {
   const highlighter = use(highlighterPromise);
