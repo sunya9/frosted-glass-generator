@@ -11,9 +11,7 @@ export default defineConfig(({ command }) => {
     base: process.env.BASE_URL || "/",
     plugins: [react(), tailwindcss()],
     resolve: {
-      alias: {
-        "@": path.resolve(__dirname, "./src"),
-      },
+      tsconfigPaths: true,
     },
     build: {
       rollupOptions: {
