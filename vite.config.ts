@@ -14,13 +14,31 @@ export default defineConfig(({ command }) => {
       tsconfigPaths: true,
     },
     build: {
-      rollupOptions: {
+      rolldownOptions: {
         input: {
           main: path.resolve(__dirname, "index.html"),
           // og-preview is only included in dev for OG image generation
           ...(isDev && {
             "og-preview": path.resolve(__dirname, "og-preview.html"),
           }),
+        },
+        output: {
+          codeSplitting: {
+            groups: [
+              {
+                test: /node_modules\/react/,
+                name: "react",
+              },
+              {
+                test: /shiki(?!js)/,
+                name: "shiki",
+              },
+              {
+                test: /node_modules/,
+                name: "vendor",
+              },
+            ],
+          },
         },
       },
     },

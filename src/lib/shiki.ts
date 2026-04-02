@@ -1,5 +1,4 @@
-import { createHighlighterCore } from "shiki/core";
-import { createJavaScriptRegexEngine } from "shiki/engine/javascript";
+import { createHighlighterCore, createJavaScriptRegexEngine } from "shiki";
 import theme from "@shikijs/themes/one-light";
 export { theme };
 export type Lang = "postcss" | "css" | "html" | "xml";
