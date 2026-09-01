@@ -43,23 +43,3 @@ export function generateCss(config: FrostedGlassConfig, useBase64: boolean = tru
 
   return { svg, css, html };
 }
-
-export function generateCssVariables(config: FrostedGlassConfig): string {
-  const { background, blur, border, shadow } = config;
-
-  return `:root {
-  --glass-bg-color: ${background.color};
-  --glass-bg-opacity: ${background.opacity};
-  --glass-blur: ${blur.amount}px;
-  --glass-border-width: ${border.width}px;
-  --glass-border-color: ${border.color};
-  --glass-border-opacity: ${border.opacity};
-  --glass-border-radius: ${border.radius}px;
-  --glass-shadow-x: ${shadow.x}px;
-  --glass-shadow-y: ${shadow.y}px;
-  --glass-shadow-blur: ${shadow.blur}px;
-  --glass-shadow-spread: ${shadow.spread}px;
-  --glass-shadow-color: ${shadow.color};
-  --glass-shadow-opacity: ${shadow.opacity};
-}`;
-}

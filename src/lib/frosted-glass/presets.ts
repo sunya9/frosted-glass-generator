@@ -178,10 +178,6 @@ export const PRESETS: Preset[] = [
   },
 ];
 
-export function getPresetByName(name: string): Preset | undefined {
-  return PRESETS.find((preset) => preset.name === name);
-}
-
 /**
  * Find the preset that matches the current config (excluding outputFormat and svgMethod)
  */

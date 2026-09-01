@@ -24,12 +24,3 @@ export function svgToBase64(svg: string): string {
   const encoded = btoa(unescape(encodeURIComponent(svg)));
   return `data:image/svg+xml;base64,${encoded}`;
 }
-
-export function generateNoiseBackgroundUrl(noise: NoiseConfig): string {
-  const svg = generateNoiseSvgMinified(noise);
-  return `url("${svgToBase64(svg)}")`;
-}
-
-// Legacy aliases
-export const generateSvgFilter = generateNoiseSvg;
-export const generateSvgFilterMinified = generateNoiseSvgMinified;
