@@ -45,12 +45,7 @@ export interface FrostedGlassConfig {
   svgMethod: SvgMethod;
 }
 
-export type PresetName =
-  | "light-frost"
-  | "heavy-frost"
-  | "subtle-glass"
-  | "vibrant"
-  | "dark-glass";
+export type PresetName = "light-frost" | "heavy-frost" | "subtle-glass" | "vibrant" | "dark-glass";
 
 export interface Preset {
   name: PresetName;

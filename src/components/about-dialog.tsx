@@ -23,16 +23,15 @@ export function AboutDialog() {
         <DialogHeader>
           <DialogTitle>Frosted Glass Generator</DialogTitle>
           <DialogDescription>
-            A tool for generating CSS glassmorphism effects using SVG
-            feTurbulence noise. Create beautiful frosted glass UI elements with
-            customizable blur, noise, and transparency settings.
+            A tool for generating CSS glassmorphism effects using SVG feTurbulence noise. Create
+            beautiful frosted glass UI elements with customizable blur, noise, and transparency
+            settings.
           </DialogDescription>
         </DialogHeader>
 
         <div className="flex flex-col gap-3">
           <div className="text-sm text-muted-foreground">
-            Created by{" "}
-            <span className="font-medium text-foreground">@ephemeralMocha</span>
+            Created by <span className="font-medium text-foreground">@ephemeralMocha</span>
           </div>
 
           <div className="flex gap-2">
@@ -41,11 +40,7 @@ export function AboutDialog() {
               size="sm"
               nativeButton={false}
               render={
-                <a
-                  href="https://x.com/ephemeralMocha"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <a href="https://x.com/ephemeralMocha" target="_blank" rel="noopener noreferrer">
                   @ephemeralMocha
                 </a>
               }

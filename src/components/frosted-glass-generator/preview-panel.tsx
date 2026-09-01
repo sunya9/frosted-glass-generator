@@ -1,8 +1,5 @@
 import { useMemo } from "react";
-import type {
-  FrostedGlassConfig,
-  PreviewBackground,
-} from "@/lib/frosted-glass";
+import type { FrostedGlassConfig, PreviewBackground } from "@/lib/frosted-glass";
 import {
   hexToRgba,
   generateNoiseSvgMinified,
@@ -71,9 +68,7 @@ export function PreviewPanel({
   }, []);
 
   const currentBackground = useMemo(() => {
-    return allBackgrounds.find(
-      (bg) => bg.type === previewBackground && bg.index === previewIndex,
-    );
+    return allBackgrounds.find((bg) => bg.type === previewBackground && bg.index === previewIndex);
   }, [allBackgrounds, previewBackground, previewIndex]);
 
   const glassStyle = useMemo(() => {
@@ -117,12 +112,8 @@ export function PreviewPanel({
           style={glassStyle}
         >
           <div className="text-center">
-            <h3 className="mb-2 text-lg font-bold text-white drop-shadow-sm">
-              Frosted Glass
-            </h3>
-            <p className="text-xs text-white/80 drop-shadow-sm">
-              Beautiful glassmorphism effect
-            </p>
+            <h3 className="mb-2 text-lg font-bold text-white drop-shadow-sm">Frosted Glass</h3>
+            <p className="text-xs text-white/80 drop-shadow-sm">Beautiful glassmorphism effect</p>
           </div>
         </div>
       </div>

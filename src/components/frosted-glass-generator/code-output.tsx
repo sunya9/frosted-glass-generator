@@ -34,9 +34,7 @@ function CodeSection({
     <div className="flex min-h-0 flex-1 flex-col overflow-hidden">
       <div className="flex shrink-0 items-center justify-between border-b bg-muted/30 px-3 py-1.5">
         <div className="flex items-center gap-2">
-          <span className="text-xs font-medium text-muted-foreground">
-            {title}
-          </span>
+          <span className="text-xs font-medium text-muted-foreground">{title}</span>
           {headerContent}
         </div>
         <Button variant="ghost" size="sm" onClick={handleCopy}>
@@ -60,11 +58,7 @@ function CodeSection({
   );
 }
 
-export function CodeOutput({
-  config,
-  outputFormat,
-  onFormatChange,
-}: CodeOutputProps) {
+export function CodeOutput({ config, outputFormat, onFormatChange }: CodeOutputProps) {
   const [useBase64, setUseBase64] = useState(true);
 
   const generatedCode = useMemo(() => {
@@ -116,9 +110,7 @@ export function CodeOutput({
       </div>
 
       <div className="flex min-h-0 flex-1 flex-col divide-y">
-        {!useBase64 && (
-          <CodeSection title="SVG" code={generatedCode.svg} language="xml" />
-        )}
+        {!useBase64 && <CodeSection title="SVG" code={generatedCode.svg} language="xml" />}
         <CodeSection
           title="CSS"
           code={generatedCode.css}

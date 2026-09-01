@@ -1,8 +1,4 @@
-import {
-  PRESETS,
-  findMatchingPreset,
-  type FrostedGlassConfig,
-} from "@/lib/frosted-glass";
+import { PRESETS, findMatchingPreset, type FrostedGlassConfig } from "@/lib/frosted-glass";
 import { Button } from "@/components/ui/button";
 import { Label } from "@/components/ui/label";
 

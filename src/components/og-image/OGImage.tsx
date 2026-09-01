@@ -20,8 +20,7 @@ export function OGImage() {
         display: "flex",
         alignItems: "center",
         justifyContent: "center",
-        fontFamily:
-          '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
+        fontFamily: '-apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif',
         position: "relative",
         overflow: "hidden",
       }}
@@ -82,12 +81,7 @@ export function OGImage() {
               />
             </filter>
           </defs>
-          <rect
-            width="100%"
-            height="100%"
-            filter="url(#ogNoise)"
-            opacity="0.4"
-          />
+          <rect width="100%" height="100%" filter="url(#ogNoise)" opacity="0.4" />
         </svg>
 
         {/* Title */}
