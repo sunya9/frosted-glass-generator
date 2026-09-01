@@ -26,8 +26,3 @@ export function normalizeHex(hex: string): string {
   const cleanHex = hex.replace("#", "");
   return `#${cleanHex.toLowerCase()}`;
 }
-
-export function opacityToTailwindFraction(opacity: number): string {
-  const percent = Math.round(opacity * 100);
-  return String(percent);
-}
