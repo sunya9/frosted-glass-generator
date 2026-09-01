@@ -7,10 +7,10 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 ```bash
 pnpm dev          # Start development server
 pnpm build        # Type-check and build for production
-pnpm lint         # Run ESLint
-pnpm lint:fix     # Run ESLint with auto-fix
+pnpm lint         # Run oxlint
+pnpm lint:fix     # Run oxlint with auto-fix
 pnpm typecheck    # Run TypeScript type checking
-pnpm format       # Format code with Prettier
+pnpm format       # Format code with oxfmt
 ```
 
 ## Tech Stack
