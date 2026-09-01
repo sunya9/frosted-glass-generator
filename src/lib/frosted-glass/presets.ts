@@ -185,9 +185,7 @@ export function getPresetByName(name: string): Preset | undefined {
 /**
  * Find the preset that matches the current config (excluding outputFormat and svgMethod)
  */
-export function findMatchingPreset(
-  config: Omit<Preset["config"], never>,
-): PresetName | null {
+export function findMatchingPreset(config: Omit<Preset["config"], never>): PresetName | null {
   for (const preset of PRESETS) {
     if (isConfigMatchingPreset(config, preset.config)) {
       return preset.name;

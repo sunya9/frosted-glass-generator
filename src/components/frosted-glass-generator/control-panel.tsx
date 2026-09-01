@@ -11,9 +11,7 @@ import { BorderShadowControls } from "./border-shadow-controls";
 interface ControlPanelProps {
   config: FrostedGlassConfig;
   onNoiseChange: (updates: Partial<FrostedGlassConfig["noise"]>) => void;
-  onBackgroundChange: (
-    updates: Partial<FrostedGlassConfig["background"]>,
-  ) => void;
+  onBackgroundChange: (updates: Partial<FrostedGlassConfig["background"]>) => void;
   onBlurChange: (updates: Partial<FrostedGlassConfig["blur"]>) => void;
   onBorderChange: (updates: Partial<FrostedGlassConfig["border"]>) => void;
   onShadowChange: (updates: Partial<FrostedGlassConfig["shadow"]>) => void;
@@ -50,10 +48,7 @@ export function ControlPanel({
 
         <Separator />
 
-        <BackgroundControls
-          background={config.background}
-          onChange={onBackgroundChange}
-        />
+        <BackgroundControls background={config.background} onChange={onBackgroundChange} />
 
         <Separator />
 

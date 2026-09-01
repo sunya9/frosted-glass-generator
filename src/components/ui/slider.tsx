@@ -21,11 +21,7 @@ function Slider({
     return [min];
   }, [value, defaultValue, min]);
 
-  const normalizedValue = Array.isArray(value)
-    ? value
-    : value !== undefined
-      ? [value]
-      : undefined;
+  const normalizedValue = Array.isArray(value) ? value : value !== undefined ? [value] : undefined;
   const normalizedDefaultValue = Array.isArray(defaultValue)
     ? defaultValue
     : defaultValue !== undefined

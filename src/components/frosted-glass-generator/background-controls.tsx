@@ -9,10 +9,7 @@ interface BackgroundControlsProps {
   onChange: (updates: Partial<BackgroundConfig>) => void;
 }
 
-export function BackgroundControls({
-  background,
-  onChange,
-}: BackgroundControlsProps) {
+export function BackgroundControls({ background, onChange }: BackgroundControlsProps) {
   return (
     <div className="space-y-4">
       <Label className="text-sm font-medium">Background</Label>

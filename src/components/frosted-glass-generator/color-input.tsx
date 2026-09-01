@@ -1,9 +1,5 @@
 import { Label } from "@/components/ui/label";
-import {
-  InputGroup,
-  InputGroupAddon,
-  InputGroupInput,
-} from "@/components/ui/input-group";
+import { InputGroup, InputGroupAddon, InputGroupInput } from "@/components/ui/input-group";
 import { isValidHex, normalizeHex } from "@/lib/frosted-glass";
 
 interface ColorInputProps {

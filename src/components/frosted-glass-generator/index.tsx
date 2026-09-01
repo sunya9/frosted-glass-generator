@@ -1,10 +1,6 @@
 import { useState, useCallback } from "react";
 import { useFrostedGlassState } from "@/hooks/use-frosted-glass-state";
-import {
-  ResizablePanelGroup,
-  ResizablePanel,
-  ResizableHandle,
-} from "@/components/ui/resizable";
+import { ResizablePanelGroup, ResizablePanel, ResizableHandle } from "@/components/ui/resizable";
 import { ControlPanel } from "./control-panel";
 import { PreviewPanel } from "./preview-panel";
 import { CodeOutput } from "./code-output";

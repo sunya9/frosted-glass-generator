@@ -15,8 +15,7 @@ import { PRESETS } from "@/lib/frosted-glass/presets";
 
 export function useFrostedGlassState() {
   const [config, setConfig] = useState<FrostedGlassConfig>(DEFAULT_CONFIG);
-  const [previewBackground, setPreviewBackground] =
-    useState<PreviewBackground>("image");
+  const [previewBackground, setPreviewBackground] = useState<PreviewBackground>("image");
   const [previewIndex, setPreviewIndex] = useState(0);
 
   const updateNoise = useCallback((updates: Partial<NoiseConfig>) => {
